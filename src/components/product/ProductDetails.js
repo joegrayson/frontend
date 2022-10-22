@@ -5,28 +5,30 @@ import Loader from '../layouts/Loader'
 import MetaData from '../layouts/MetaData'
 
 import { useAlert } from 'react-alert'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, clearErrors } from '../../actions/productActions'
 
-const ProductDetails = () => {
+const ProductDetails = ({ match }) => {
 
-    const { id } = useParams();
+    // const { id } = useParams();
 
     const dispatch = useDispatch();
     const alert = useAlert();
 
-    const getProductDetailsState = useSelector(state => state.productDetails)
-    const { loading, error, product } = getProductDetailsState
+    const { loading, error, product } = useSelector(state => state.productDetails)
+
+    // const getProductDetailsState = useSelector(state => state.productDetails)
+    // const { loading, error, product } = getProductDetailsState
 
     useEffect(() => {
-        dispatch(getProductDetails(id))
+        dispatch(getProductDetails(match.params.id))
 
         if (error) {
             alert.error(error);
             dispatch(clearErrors())
         }
-    }, [dispatch, alert, error, id])
+    }, [dispatch, alert, error, match.params.id])
 
     return (
         <Fragment>

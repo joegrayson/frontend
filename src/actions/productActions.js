@@ -3,19 +3,25 @@ import axios from 'axios';
 import {
     ALL_PRODUCTS_REQUEST,
     ALL_PRODUCTS_SUCCESS,
-    ALL_PRODUCTS_FAIL,    
+    ALL_PRODUCTS_FAIL,
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
-    CLEAR_ERRORS,
+    CLEAR_ERRORS
 } from '../constants/productConstants'
 
 // Getting all products
-export const getProducts = (keyword = '', currentPage = 1) => async (dispatch) => {
+export const getProducts = (keyword = '', currentPage = 1, price, category) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}`)
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+
+        if (category) {
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
+        }
+
+        const { data } = await axios.get(link)
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
