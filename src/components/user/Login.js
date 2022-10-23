@@ -8,7 +8,6 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
 
-
 const Login = ({ history }) => {
 
     const [email, setEmail] = useState('');
@@ -67,17 +66,18 @@ const Login = ({ history }) => {
                                     />
                                 </div>
 
-                                <Link to="/password/forgot" className="float-right mb-4">Forgot Password?</Link>
+                                <Link to="/password/forgot" className="float-right mb-4 d-flex">Forgot your password?</Link>
 
                                 <button
                                     id="login_button"
                                     type="submit"
-                                    className="btn-56"
-                                >
-                                    LOGIN
-                                </button>
+                                    className="btn-56 d-inline"                                    
+                                >LOGIN</button>
 
-                                <Link to="/register" className="float-right mt-3">New User?</Link>
+                               <br/>
+                               <br/>
+
+                                <Link to="/register" className="float-right mt-3" >Create account</Link>
                             </form>
                         </div>
                     </div>
