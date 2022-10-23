@@ -1,11 +1,20 @@
 import React, { Fragment } from 'react'
 import { Route, Link } from 'react-router-dom'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+
 import Search from './Search'
 
 import '../../App.css'
 
 const Header = () => {
+
+    const alert = useAlert();
+    const dispatch = useDispatch();
+
+    const { user, loading } = useSelector(state => state.auth)
+
     return (
         <Fragment>
             <nav className="navbar navbar-expand-lg">
@@ -20,12 +29,40 @@ const Header = () => {
                         <Route render={({ history }) => <Search history={history} />} />
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/login">LOGIN</Link>
+                                <Link to="/cart" className="nav-link" style={{ textDecoration: 'none' }}>
+                                    <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <span className="ml-1" id="cart_count"> 2</span>
+                                </Link>
                             </li>
+                            {user ? (
+                                <div className="ml-4 dropdown d-inline">
+                                    <Link to="!#" className="btn dropdown-toggle text-black" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <figure className="avatar avatar-nav">
+                                            <img
+                                                src={user.avatar && user.avatar.url}
+                                                alt={user && user.name}
+                                                className="rounded-circle"
+                                            />
+                                        </figure>
+                                        <span>{user && user.name}</span>
+                                    </Link>
+                                    <div className="dropdown-menu" aria-labelledby="dropDownMenuButton">
+
+                                        {user && user.role !== 'admin' ? (
+                                            <Link className="dropdown-item" to="/orders/me">Orders</Link>
+                                        ) : (
+                                            <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
+                                        )}
+                                        <Link className="dropdown-item" to="/me">Profile</Link>
+                                        <Link className="dropdown-item text-black" to="/">
+                                            Logout
+                                        </Link>
+                                    </div>
+                                </div>
+                            ) : !loading &&
                             <li className="nav-item">
-                                <a className="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                                <Link className="btn ml-4" id="login_btn" to="/login">LOGIN</Link>
+                            </li>}
                         </ul>
 
                     </div>
