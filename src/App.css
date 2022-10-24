@@ -1,6 +1,7 @@
+
 /* NAVBAR-COMPONENT */
 
-.navbar {
+.navbar {  
   font-family: 'Roboto', sans-serif !important;
   height: 80px !important;
 }
@@ -279,4 +280,16 @@
 #edit_profile {
   background-color: #fa9c23;
   border-color: #fa9c23;
+}
+
+/* Update Button */
+
+.update-btn {
+  background-color: #fa9c23;
+  border-color: #fa9c23;
+  color: white;
+}
+
+.update-btn:hover {
+  color: white;
 }

@@ -42,7 +42,7 @@ const Header = () => {
                             </li>
                             {user ? (
                                 <div className="ml-4 dropdown d-inline">
-                                    <Link to="!#" className="btn dropdown-toggle text-black" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <Link to="!#" className="btn dropdown-toggle text-black mr-4" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <figure className="avatar avatar-nav">
                                             <img
                                                 src={user.avatar && user.avatar.url}
