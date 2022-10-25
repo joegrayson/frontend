@@ -64,7 +64,7 @@ const UpdatePassword = ({ history }) => {
                             />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group mt-2">
                             <label for="new_password_field">New Password</label>
                             <input
                                 type="password"
@@ -77,7 +77,7 @@ const UpdatePassword = ({ history }) => {
 
                         <button
                             type="submit"
-                            className="btn update-btn btn-block mt-4 mb-3"
+                            className="btn-56 update-btn btn-block mt-4 mb-3"
                             disabled={loading ? true : false}
                         >Update Password
                         </button>

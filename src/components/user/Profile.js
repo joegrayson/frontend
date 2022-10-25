@@ -21,7 +21,7 @@ const Profile = () => {
                             <figure className='avatar avatar-profile'>
                                 <img className="rounded-circle img-fluid" src={user.avatar.url} alt={user.name} />
                             </figure>
-                            <Link to="/me/update" id="edit_profile" className="btn btn-primary btn-block my-5">
+                            <Link to="/me/update" id="edit_profile" className="btn-56 btn-primary btn-block my-5">
                                 Edit Profile
                             </Link>
                         </div>
@@ -37,12 +37,12 @@ const Profile = () => {
                             <p>{String(user.createdAt).substring(0, 10)}</p>
 
                             {user.role !== 'admin' && (
-                                <Link to="/orders/me" className="btn btn-danger btn-block mt-5">
+                                <Link to="/orders/me" className="btn-56 btn-danger btn-block mt-3">
                                     My Orders
                                 </Link>
                             )}
 
-                            <Link to="/password/update" className="btn btn-primary btn-block mt-3">
+                            <Link to="/password/update" className="btn-56 btn-primary btn-block mt-3">
                                 Change Password
                             </Link>
                         </div>

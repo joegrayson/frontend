@@ -89,7 +89,7 @@ const UpdateProfile = ({ history }) => {
                             />
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group mt-2">
                             <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
@@ -100,9 +100,10 @@ const UpdateProfile = ({ history }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
+                        <br/>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <label htmlFor='avatar_upload'>Profile Picture</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -113,7 +114,7 @@ const UpdateProfile = ({ history }) => {
                                         />
                                     </figure>
                                 </div>
-                                <div className='custom-file'>
+                                <div className='custom-file mt-1 ms-4'>
                                     <input
                                         type='file'
                                         name='avatar'
@@ -122,7 +123,7 @@ const UpdateProfile = ({ history }) => {
                                         accept='image/*'
                                         onChange={onChange}
                                     />
-                                    <label className='custom-file-label' htmlFor='customFile'>
+                                    <label className='custom-file-label ms-1' htmlFor='customFile'>
                                         Choose Avatar
                                     </label>
                                 </div>
@@ -132,7 +133,7 @@ const UpdateProfile = ({ history }) => {
 
                         <button
                             type="submit"
-                            className="btn update-btn btn-block mt-4 mb-3"
+                            className="btn-56 update-btn btn-block mt-4 mb-3"
                             disabled={loading ? true : false}>
                             Update
                         </button>
